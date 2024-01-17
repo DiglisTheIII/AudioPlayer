@@ -103,6 +103,8 @@ public class MP3Player {
                                 break;
                         }
                         if(isBreakLoop) {
+
+                            //Fix this, doesnt shuffle or unshuffle because of the break forcing it out of the loop, this killing the playNoShuffle method
                             playNoShuffle(songList);
                             break;
                         }
