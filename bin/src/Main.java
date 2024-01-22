@@ -1,36 +1,30 @@
 import java.io.IOException;
-import java.util.Scanner;
 
-import Media.MP3Player;
+import PreSetup.SetupUI;
 import javafx.application.Platform;
 import javafx.scene.media.MediaPlayer;
-
+import UI.UI;
+import UI.UIFuncs;
+import java.io.File;
 
 public class Main {
 
     MediaPlayer player;
+
     public static void main(String[] args) {
-        Platform.startup(() -> {
-            MP3Player player = new MP3Player();
+        Platform.startup(() -> {         
             try {
-                player.initialize();
+                File f = new File("UserFiles//Paths.txt");
+                if (!f.exists()) {
+                    SetupUI ui = new SetupUI();
+                } else {
+                    UI ui = new UI();
+                }
             } catch (IOException | InterruptedException e) {
                 e.printStackTrace();
             }
-            Scanner in = new Scanner(System.in);
-            System.out.println("1. Play playlist \n2. Shuffle Playlist");
-
-            switch(in.nextLine()) {
-                case "1":
-                    player.playNoShuffle(player.songList);
-                    break;
-                case "2":
-                    player.shufflePlaylist();
-                    break;
-                default:
-                    System.out.println("Invalid Choice");
-            }
         });
+
     }
 
 }

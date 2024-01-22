@@ -1,2 +1,1 @@
-C:/Users/Mason/Documents/Songs/
-#Edit path here if you change your song folder directory at any point.
+C:\Users\Mason\Documents\Songs
